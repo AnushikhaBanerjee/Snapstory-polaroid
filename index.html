@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapStory | Polaroid Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">✳</span>
+            <span>
+                <strong>snapstory</strong>
+                <small>YOUR LITTLE MEMORY STUDIO</small>
+            </span>
+        </a>
+
+        <div class="nav-actions">
+            <button class="btn soft-btn" id="surpriseBtn">✦ Surprise me</button>
+            <button class="btn dark-btn" id="downloadBtn">↓ Export PNG</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div>
+                <span class="eyebrow">✷ MAKE A LITTLE MAGIC</span>
+                <h1>Your memories,<br><em>your aesthetic.</em></h1>
+                <p>Turn your everyday moments into tiny keepsakes. Add photos, stickers and little details to make them yours.</p>
+            </div>
+
+            <div class="hero-note">
+                ✦ <span>made for the<br><b>memory collectors</b></span>
+            </div>
+        </section>
+
+        <section class="workspace">
+
+            <!-- LEFT TOOL PANEL -->
+            <aside class="panel tools-panel">
+
+                <div class="panel-heading">THE TOOLBOX <span>✳</span></div>
+
+                <div class="tabs">
+                    <button class="tab active" data-tab="photos">▧ Photos</button>
+                    <button class="tab" data-tab="layouts">▦ Layouts</button>
+                    <button class="tab" data-tab="stickers">✿ Decorate</button>
+                    <button class="tab" data-tab="text">T Text</button>
+                </div>
+
+                <!-- PHOTOS -->
+                <div class="tab-content active" id="photosTab">
+
+                    <h3>ADD YOUR PHOTOS</h3>
+
+                    <label class="upload-box" for="photoUpload">
+                        <span class="upload-icon">↑</span>
+                        <b>Choose photos</b>
+                        <small>JPG, PNG, WEBP</small>
+                        <input type="file" id="photoUpload" accept="image/*" multiple hidden>
+                    </label>
+
+                    <button class="btn outline-btn full" id="cameraBtn">◎ Use camera</button>
+                    <button class="btn outline-btn full" id="sampleBtn">✧ Try sample photo</button>
+
+                    <h3 class="section-gap">PHOTO FILTERS</h3>
+
+                    <div class="filters">
+                        <button class="filter active" data-filter="none">
+                            <span class="filter-swatch original"></span>Original
+                        </button>
+
+                        <button class="filter" data-filter="sepia">
+                            <span class="filter-swatch sepia"></span>Sepia
+                        </button>
+
+                        <button class="filter" data-filter="grayscale">
+                            <span class="filter-swatch bw"></span>B&W
+                        </button>
+
+                        <button class="filter" data-filter="warm">
+                            <span class="filter-swatch warm"></span>Golden
+                        </button>
+
+                        <button class="filter" data-filter="fade">
+                            <span class="filter-swatch fade"></span>Faded
+                        </button>
+
+                        <button class="filter" data-filter="rose">
+                            <span class="filter-swatch rose"></span>Rose
+                        </button>
+                    </div>
+
+                    <p class="helper">Select a photo before applying a filter.</p>
+
+                    <h3 class="section-gap">YOUR PHOTOS <span id="photoCount">0</span></h3>
+                    <div id="thumbnails" class="thumbnails"></div>
+
+                </div>
+
+                <!-- LAYOUTS -->
+                <div class="tab-content" id="layoutsTab">
+
+                    <h3>CHOOSE YOUR LAYOUT</h3>
+
+                    <div class="layout-grid">
+                        <button class="layout-btn active" data-layout="classic">
+                            <span class="layout-icon classic-icon">▯</span>
+                            <b>Classic</b>
+                            <small>One memory</small>
+                        </button>
+
+                        <button class="layout-btn" data-layout="duo">
+                            <span class="layout-icon duo-icon">▯ ▯</span>
+                            <b>Little duo</b>
+                            <small>Two photos</small>
+                        </button>
+
+                        <button class="layout-btn" data-layout="strip">
+                            <span class="layout-icon strip-icon">▤</span>
+                            <b>Photo strip</b>
+                            <small>Photo booth vibes</small>
+                        </button>
+
+                        <button class="layout-btn" data-layout="collage">
+                            <span class="layout-icon collage-icon">▦</span>
+                            <b>Scrapbook</b>
+                            <small>Little memories</small>
+                        </button>
+
+                        <button class="layout-btn" data-layout="grid">
+                            <span class="layout-icon grid-icon">▦</span>
+                            <b>Mini grid</b>
+                            <small>Four pictures</small>
+                        </button>
+
+                        <button class="layout-btn" data-layout="film">
+                            <span class="layout-icon film-icon">▥</span>
+                            <b>Film roll</b>
+                            <small>Retro mood</small>
+                        </button>
+                    </div>
+
+                    <h3 class="section-gap">PAPER COLOR</h3>
+
+                    <div class="paper-colors">
+                        <button data-paper="#fffdf8" style="--color:#fffdf8" class="paper active"></button>
+                        <button data-paper="#f8e5e7" style="--color:#f8e5e7" class="paper"></button>
+                        <button data-paper="#e9e0d2" style="--color:#e9e0d2" class="paper"></button>
+                        <button data-paper="#dce8df" style="--color:#dce8df" class="paper"></button>
+                        <button data-paper="#e2e6f5" style="--color:#e2e6f5" class="paper"></button>
+                        <button data-paper="#292725" style="--color:#292725" class="paper"></button>
+                    </div>
+
+                    <h3 class="section-gap">STUDIO THEME</h3>
+
+                    <div class="theme-buttons">
+                        <button class="theme-btn active" data-theme="cream">● Cream</button>
+                        <button class="theme-btn" data-theme="pink">● Blush</button>
+                        <button class="theme-btn" data-theme="brown">● Mocha</button>
+                        <button class="theme-btn" data-theme="black">● Ink</button>
+                    </div>
+
+                </div>
+
+                <!-- STICKERS -->
+                <div class="tab-content" id="stickersTab">
+
+                    <h3>ADD A LITTLE SOMETHING</h3>
+                    <p class="helper">Click a sticker, then drag it around your Polaroid.</p>
+
+                    <div class="sticker-grid">
+                        <button class="sticker" data-sticker="♡">♡<small>Love</small></button>
+                        <button class="sticker" data-sticker="🎀">🎀<small>Bow</small></button>
+                        <button class="sticker" data-sticker="✿">✿<small>Flower</small></button>
+                        <button class="sticker" data-sticker="★">★<small>Star</small></button>
+                        <button class="sticker" data-sticker="☁">☁<small>Cloud</small></button>
+                        <button class="sticker" data-sticker="🦋">🦋<small>Butterfly</small></button>
+                        <button class="sticker" data-sticker="🍒">🍒<small>Cherry</small></button>
+                        <button class="sticker" data-sticker="🐈">🐈<small>Kitty</small></button>
+                        <button class="sticker" data-sticker="✧">✧<small>Sparkle</small></button>
+                        <button class="sticker" data-sticker="☻">☻<small>Smiley</small></button>
+                        <button class="sticker" data-sticker="୨୧">୨୧<small>Ribbon</small></button>
+                        <button class="sticker" data-sticker="☾">☾<small>Moon</small></button>
+                    </div>
+
+                    <h3 class="section-gap">WASHI TAPE</h3>
+
+                    <div class="tape-buttons">
+                        <button class="tape" data-color="#edbac7">Blush</button>
+                        <button class="tape" data-color="#eedc9d">Butter</button>
+                        <button class="tape" data-color="#c7dac6">Sage</button>
+                        <button class="tape" data-color="#c5d6e9">Sky</button>
+                    </div>
+
+                    <h3 class="section-gap">SELECTED DECORATION</h3>
+
+                    <label class="field-label">
+                        Sticker size
+                        <input type="range" id="stickerSize" min="18" max="90" value="42">
+                    </label>
+
+                    <label class="field-label">
+                        Rotation
+                        <input type="range" id="stickerRotation" min="-45" max="45" value="0">
+                    </label>
+
+                    <button class="btn outline-btn full" id="deleteStickerBtn">× Remove selected</button>
+
+                </div>
+
+                <!-- TEXT -->
+                <div class="tab-content" id="textTab">
+
+                    <h3>YOUR WORDS, YOUR WAY</h3>
+
+                    <label class="field-label">
+                        Main caption
+                        <input type="text" id="captionInput" maxlength="70" placeholder="little moments, big memories">
+                    </label>
+
+                    <label class="field-label">
+                        Date or location
+                        <input type="text" id="dateInput" maxlength="40" placeholder="October '26 · Kanpur">
+                    </label>
+
+                    <button class="btn dark-btn full" id="updateCaptionBtn">Update Polaroid caption</button>
+
+                    <h3 class="section-gap">ADD MOVABLE TEXT</h3>
+
+                    <label class="field-label">
+                        Your text
+                        <input type="text" id="stickerTextInput" maxlength="45" placeholder="e.g. best day ever ♡">
+                    </label>
+
+                    <button class="btn outline-btn full" id="addTextBtn">＋ Add text to canvas</button>
+
+                    <label class="field-label section-gap">
+                        Font style
+                        <select id="fontSelect">
+                            <option value="hand">Handwritten</option>
+                            <option value="serif">Elegant serif</option>
+                            <option value="sans">Clean sans</option>
+                        </select>
+                    </label>
+
+                    <label class="field-label">
+                        Text color
+                        <input type="color" id="textColor" value="#4a3b33">
+                    </label>
+
+                    <h3 class="section-gap">QUICK CAPTIONS</h3>
+
+                    <div class="quick-captions">
+                        <button>core memory ♡</button>
+                        <button>just us things</button>
+                        <button>stay a little</button>
+                        <button>the good days ✷</button>
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- MAIN CANVAS -->
+            <section class="studio">
+
+                <div class="studio-topbar">
+                    <span><i class="live-dot"></i> YOUR CANVAS <small>LIVE PREVIEW</small></span>
+
+                    <div>
+                        <button class="icon-btn" id="undoBtn" title="Undo">↶</button>
+                        <button class="icon-btn" id="redoBtn" title="Redo">↷</button>
+                        <button class="icon-btn" id="clearBtn" title="Clear">⌫</button>
+                    </div>
+                </div>
+
+                <div class="canvas-stage">
+                    <span class="canvas-label top-label">A MOMENT TO KEEP ✷</span>
+
+                    <div id="artboard" class="artboard layout-classic">
+
+                        <div class="photo-slot" data-slot="0">
+                            <div class="placeholder">
+                                <span>＋</span>
+                                <b>Your photo goes here</b>
+                                <small>Upload or try a sample</small>
+                            </div>
+                            <img alt="Polaroid photo" hidden>
+                        </div>
+
+                        <div class="photo-slot" data-slot="1" hidden>
+                            <div class="placeholder"><span>＋</span><b>Add another memory</b></div>
+                            <img alt="Polaroid photo" hidden>
+                        </div>
+
+                        <div class="photo-slot" data-slot="2" hidden>
+                            <div class="placeholder"><span>＋</span><b>Add another memory</b></div>
+                            <img alt="Polaroid photo" hidden>
+                        </div>
+
+                        <div class="photo-slot" data-slot="3" hidden>
+                            <div class="placeholder"><span>＋</span><b>Add another memory</b></div>
+                            <img alt="Polaroid photo" hidden>
+                        </div>
+
+                        <div class="caption-area">
+                            <div id="mainCaption">little moments, big memories</div>
+                            <div id="dateCaption">made with love · 2026</div>
+                        </div>
+
+                        <div id="decorationLayer"></div>
+                    </div>
+
+                    <span class="canvas-label bottom-label">✿ KEEP THE LITTLE THINGS</span>
+                </div>
+
+                <div class="studio-footer">
+                    <span><b id="layoutName">CLASSIC POLAROID</b><small>Drag decorations to arrange your story</small></span>
+                    <span>✦ <b id="decorationCount">0</b> little details</span>
+                </div>
+
+            </section>
+
+            <!-- RIGHT PANEL -->
+            <aside class="panel settings-panel">
+
+                <div class="panel-heading">FINISHING TOUCHES <span>✧</span></div>
+
+                <div class="mini-preview" id="miniPreview">
+                    <span>✳</span>
+                    <b>Your story starts here</b>
+                    <small>Upload a photo to begin</small>
+                </div>
+
+                <h3>QUICK SETTINGS</h3>
+
+                <label class="toggle-row">
+                    Paper shadow
+                    <input type="checkbox" id="shadowToggle" checked>
+                </label>
+
+                <label class="toggle-row">
+                    Film grain
+                    <input type="checkbox" id="grainToggle">
+                </label>
+
+                <label class="toggle-row">
+                    Rounded corners
+                    <input type="checkbox" id="roundToggle" checked>
+                </label>
+
+                <label class="toggle-row">
+                    Show date
+                    <input type="checkbox" id="showDateToggle" checked>
+                </label>
+
+                <h3 class="section-gap">SAVE YOUR WORK</h3>
+
+                <button class="btn outline-btn full" id="saveBtn">♡ Save draft</button>
+                <button class="btn outline-btn full" id="restoreBtn">↻ Restore draft</button>
+
+                <p class="helper">Your photos stay in your browser. Nothing is uploaded to a server.</p>
+
+                <div class="tip-card">
+                    <b>✦ A LITTLE TIP</b>
+                    <p>Use 2–4 photos for a scrapbook feel. Add one caption and a sticker or two.</p>
+                </div>
+
+            </aside>
+
+        </section>
+
+        <footer>
+            <span>SNAPSTORY STUDIO © 2026</span>
+            <span>made for memories, not perfection ♡</span>
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="camera-modal" id="cameraModal">
+        <div class="camera-box">
+            <button id="closeCameraBtn" class="close-camera">×</button>
+            <h3>CAPTURE A MOMENT</h3>
+            <video id="cameraVideo" autoplay playsinline></video>
+            <button class="btn dark-btn full" id="captureBtn">◎ Capture photo</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
